@@ -73,7 +73,6 @@ class ApplicationMaster extends AMRMClientAsync.CallbackHandler {
 
     val containerLaunchContext = createContainerContext(commands, localResources, buildEnvironment(Map()))
 
-    //Take the first container
     containers.asScala.foreach { container =>
       nmClient.startContainerAsync(container, containerLaunchContext)
     }
